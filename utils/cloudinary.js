@@ -1,0 +1,35 @@
+const cloudinary = require('cloudinary');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+// Cloudinary Upload Image
+const cloudinaryUploadImage = async (fileToUpload) => {
+  try {
+    const data = await cloudinary.uploader.upload(fileToUpload, {
+      resource_type: 'auto',
+    });
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+// Cloudinary removeImg Image
+const cloudinaryRemoveImage = async (imagePublicId) => {
+  try {
+    const result = await cloudinary.uploader.upload(imagePublicId);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = {
+  cloudinaryUploadImage,
+  cloudinaryRemoveImage,
+};
