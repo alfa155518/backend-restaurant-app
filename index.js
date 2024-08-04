@@ -26,8 +26,15 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'images')));
 
 // To Anabel LocalHost
-app.use(cors());
+// app.use(cors());
 
+app.use(
+  cors({
+    origin: 'https://backend-restaurant-app.vercel.app',
+    methods: ['POST', 'GET', 'DELETE', 'PATCH'],
+    credentials: true,
+  })
+);
 // User Routes
 const userRoute = require('./routes/userRoutes');
 
