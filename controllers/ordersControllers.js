@@ -51,7 +51,6 @@ const createOrder = async (req, res) => {
       checkoutUrl,
     });
   } catch (err) {
-    console.error(err);
     errorsControllers.globalErrorHandler(res, 400, err);
   }
 };
@@ -68,7 +67,6 @@ const getAllOrders = async (req, res) => {
       allOrders,
     });
   } catch (err) {
-    console.error(err);
     res.status(500).json({
       status: 'fail',
       message: 'Server error',
@@ -98,7 +96,6 @@ const updateOrderStatus = async (req, res) => {
       updatedOrder,
     });
   } catch (err) {
-    console.error(err);
     errorsControllers.globalErrorHandler(res, 400, err);
   }
 };
@@ -122,7 +119,6 @@ const deleteOrder = async (req, res) => {
       status: 'success',
     });
   } catch (err) {
-    console.error(err);
     errorsControllers.globalErrorHandler(res, 400, err);
   }
 };

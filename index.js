@@ -26,7 +26,13 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'images')));
 
 // To Anabel LocalHost
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 // User Routes
 const userRoute = require('./routes/userRoutes');
 
@@ -56,9 +62,6 @@ const orderRoute = require('./routes/ordersRoutes');
 
 // Reservation Routes
 const reserveRoute = require('./routes/reserveTableRoutes');
-
-// Checkout Routes
-const checkoutRoute = require('./routes/paymentRoutes');
 
 // Connect To Database
 mongoose.connect(process.env.DATABASE).then(() => {
@@ -111,9 +114,6 @@ app.use('/api/v1/orders', orderRoute);
 
 // reserve Routes Middleware
 app.use('/api/v1/reservation', reserveRoute);
-
-// checkout Routes Middleware
-app.use('/api/v1/payment', checkoutRoute);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

@@ -4,7 +4,7 @@
   "description": "resturant app ",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "Ahmed Hassob",
   "license": "ISC",

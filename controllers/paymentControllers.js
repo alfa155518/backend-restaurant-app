@@ -5,11 +5,6 @@ const dynamicProductType = require('../utils/dynamicProductType');
 // const checkoutOrder = async (productId, quantity) => {
 const checkoutOrder = async (req, res, productId, quantity) => {
   try {
-    let product = '';
-    const host = req.get('host');
-    const protocol = req.protocol;
-    console.log(host, protocol);
-
     // 1) Identify Product Type
     const type = await dynamicProductType(productId);
     if (type === 'AllProduct') {
@@ -38,7 +33,6 @@ const checkoutOrder = async (req, res, productId, quantity) => {
       cancel_url: `http://localhost:3000/restaurant-app/paymentFailed`,
     });
 
-    // console.log(session);
     return session;
   } catch (err) {
     return err;

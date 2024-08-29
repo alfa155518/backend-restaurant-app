@@ -5,7 +5,6 @@ const allProductsControllers = require('../controllers/allProductsControllers');
 const { authenticated } = require('../middlewares/authenticated');
 const { verifyToken } = require('../middlewares/verifyToken');
 
-// router.get('/', verifyToken,authenticated,allProductsControllers.getAllProducts);
 router.get('/', allProductsControllers.getAllProducts);
 router.post(
   '/addProduct',
