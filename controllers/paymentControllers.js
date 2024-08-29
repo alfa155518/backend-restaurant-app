@@ -28,11 +28,8 @@ const checkoutOrder = async (req, res, productId, quantity) => {
         },
       ],
       mode: 'payment',
-      // success_url: `http://localhost:3000/restaurant-app/paymentSuccess`,
-      // https://your-github-username.github.io/your-react-app/success
-      success_url: `https://alfa155518.github.io/restaurant-app/paymentSuccess`,
-      cancel_url: `https://alfa155518.github.io/restaurant-app/paymentFailed`,
-      // cancel_url: `http://localhost:3000/restaurant-app/paymentFailed`,
+      success_url: `https://alfa155518.github.io/restaurant-app/#/paymentSuccess`,
+      cancel_url: `https://alfa155518.github.io/restaurant-app/#/paymentFailed`,
     });
 
     return session;
