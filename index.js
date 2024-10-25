@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'images')));
 // To Anabel LocalHost
 app.use(
   cors({
-    origin: '*',
+    origin: 'https://alfa155518.github.io', // Update this line to allow your specific frontend origin
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
